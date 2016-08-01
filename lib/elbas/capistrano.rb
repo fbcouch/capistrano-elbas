@@ -11,6 +11,7 @@ def autoscale(groupname, *args)
   running_instances = autoscale_group.ec2_instances.filter('instance-state-name', 'running')
 
   set :aws_autoscale_group, groupname
+  add_autoscale_group groupname
 
   running_instances.each do |instance|
     hostname = instance.dns_name || instance.private_ip_address

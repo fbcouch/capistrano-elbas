@@ -16,6 +16,14 @@ module Elbas
       def autoscale_group_name
         fetch(:aws_autoscale_group)
       end
+
+      def autoscale_group_names
+        fetch(:aws_autoscale_groups, [])
+      end
+
+      def add_autoscale_group(groupname)
+        autoscale_group_names << groupname
+      end
     end
   end
 end
